@@ -25,7 +25,7 @@ class AppController < Sinatra::Base
 
   	before do
 	    headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
-	    headers['Access-Control-Allow-Origin'] = 'https://weatherappclient.herokuapp.com/'
+	    headers['Access-Control-Allow-Origin'] = 'https://weatherappclient.herokuapp.com/*'
 	    headers['Access-Control-Allow-Headers'] = 'accept, authorization, origin'
 	    headers['Access-Control-Allow-Credentials'] = 'true'
 
