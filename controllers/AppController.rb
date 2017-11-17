@@ -6,16 +6,11 @@ class AppController < Sinatra::Base
 	Bundler.require
 
 	
-
 	register Sinatra::CrossOrigin
-
 
 	use Rack::Session::Cookie, :key => 'rack.session', :path => '/', :secret => 'some-random-string'
 
-	ActiveRecord::Base.establish_connection(
-		:adapter => 'postgresql',
-		:database => 'weather'
-		)
+	require './config/environments'
 
 	configure do
 		enable :cross_origin
@@ -30,7 +25,7 @@ class AppController < Sinatra::Base
 
   	before do
 	    headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
-	    headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+	    headers['Access-Control-Allow-Origin'] = 'https://weatherappclient.herokuapp.com/'
 	    headers['Access-Control-Allow-Headers'] = 'accept, authorization, origin'
 	    headers['Access-Control-Allow-Credentials'] = 'true'
 
